@@ -472,7 +472,7 @@ void computePid_Vvl() {
   pidVvlTotal = constrain(pidVvlTotal, -12.0, 12.0);
 
   hoek_voor_vleugel = pidVvlTotal - pitch;
-  afstand_liniear = sqrt(43.2 * 43.2 + 13.4 * 13.4 - 2 * 43.2 * 13.4 * cos((hoek_voor_vleugel + 90.0 - 22.49831) * M_PI / 180.0));  // lengte linieare motor in cm is wortel(b^2+c^2 - 2*b*c*cos(hoek vleugel))
+  afstand_liniear = sqrt(43.2 * 43.2 + 13.4 * 13.4 - 2 * 43.2 * 13.4 * cos((hoek_voor_vleugel + 90.0 - 22.49831 - 3) * M_PI / 180.0));  // lengte linieare motor in cm is wortel(b^2+c^2 - 2*b*c*cos(hoek vleugel))
   pulsen_liniear = afstand_liniear * pulsen_per_mm * 10;                                                                            // pulsen naar voorvleugel = afstand in cm maal pulsen per cm
   CAN_pulsen_voor = pulsen_liniear;
 }
